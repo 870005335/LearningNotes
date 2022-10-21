@@ -12,7 +12,7 @@
 
 ![image-20220725165328523](JVM与Java体系结构.assets/image-20220725165328523.png)
 
-大部分Java开发人员，除会在项目中使用到与Java平台相关的各种高精尖技术，对于Java技术的核心Java虚拟机了解甚少。
+<font color='red'>大部分Java开发人员，除会在项目中使用到与Java平台相关的各种高精尖技术，对于Java技术的核心Java虚拟机了解甚少。</font>
 
 一些有一定工作经验的开发人员，打心眼儿里觉得SSM、微服务等上层技术才是重点，基础技术并不重要，这其实是一种本末倒置的“病态”。如果我们把核心类库的API比做数学公式的话，那么Java虚拟机的知识就好比公式的推导过程。
 
@@ -71,13 +71,13 @@ Java是目前应用最为广泛的软件开发平台之一。随着Java以及Jav
 
 ![image-20220725170635385](JVM与Java体系结构.assets/image-20220725170635385.png)
 
-随着Java7的正式发布，Java虚拟机的设计者们通过JSR-292规范基本实现在Java虚拟机平台上运行非Java语言编写的程序。
+随着Java7的正式发布，Java虚拟机的设计者们通过JSR-292规范基本实现<font color='red'>在Java虚拟机平台上运行非Java语言编写的程序</font>。
 
-Java虚拟机根本不关心运行在其内部的程序到底是使用何种编程语言编写的，它只关心“字节码”文件。也就是说Java虚拟机拥有语言无关性，并不会单纯地与Java语言“终身绑定”，只要其他编程语言的编译结果满足并包含Java虚拟机的内部指令集、符号表以及其他的辅助信息，它就是一个有效的字节码文件，就能够被虚拟机所识别并装载运行。
+Java虚拟机根本不关心运行在其内部的程序到底是使用何种编程语言编写的，<font color='red'>它只关心“字节码”文件</font>。也就是说Java虚拟机拥有语言无关性，并不会单纯地与Java语言“终身绑定”，只要其他编程语言的编译结果满足并包含Java虚拟机的内部指令集、符号表以及其他的辅助信息，它就是一个有效的字节码文件，就能够被虚拟机所识别并装载运行。
 
 ## 字节码
 
-我们平时说的java字节码，指的是用java语言编译成的字节码。准确的说任何能在jvm平台上执行的字节码格式都是一样的。所以应该统称为：jvm字节码。
+我们平时说的java字节码，指的是用java语言编译成的字节码。准确的说任何能在jvm平台上执行的字节码格式都是一样的。<font color='red'>所以应该统称为：jvm字节码</font>。
 
 不同的编译器，可以编译出相同的字节码文件，字节码文件也可以在不同的JVM上运行。
 
@@ -85,11 +85,11 @@ Java虚拟机与Java语言并没有必然的联系，它只与特定的二进制
 
 ## 多语言混合编程
 
-Java平台上的多语言混合编程正成为主流，通过特定领域的语言去解决特定领域的问题是当前软件开发应对日趋复杂的项目需求的一个方向。
+<font color='orange'>Java平台上的多语言混合编程正成为主流，通过特定领域的语言去解决特定领域的问题是当前软件开发应对日趋复杂的项目需求的一个方向。</font>
 
-试想一下，在一个项目之中，并行处理用clojure语言编写，展示层使用JRuby/Rails，中间层则是Java，每个应用层都将使用不同的编程语言来完成，而且，接口对每一层的开发者都是透明的，各种语言之间的交互不存在任何困难，就像使用自己语言的原生API一样方便，因为它们最终都运行在一个虚拟机之上。
+试想一下，在一个项目之中，并行处理用clojure语言编写，展示层使用JRuby/Rails，中间层则是Java，每个应用层都将使用不同的编程语言来完成，而且，接口对每一层的开发者都是透明的，<font color='red'>各种语言之间的交互不存在任何困难，就像使用自己语言的原生API一样方便，因为它们最终都运行在一个虚拟机之上</font>。
 
-对这些运行于Java虚拟机之上、Java之外的语言，来自系统级的、底层的支持正在迅速增强，以JSR-292为核心的一系列项目和功能改进（如Da Vinci Machine项目、Nashorn引擎、InvokeDynamic指令、java.lang.invoke包等），推动Java虚拟机从“Java语言的虚拟机”向 “多语言虚拟机”的方向发展。
+对这些运行于Java虚拟机之上、Java之外的语言，来自系统级的、底层的支持正在迅速增强，以JSR-292为核心的一系列项目和功能改进（如Da Vinci Machine项目、Nashorn引擎、InvokeDynamic指令、java.lang.invoke包等），<font color='red'>推动Java虚拟机从“Java语言的虚拟机”向 “多语言虚拟机”的方向发展</font>。
 
 ## Java发展的重大事件
 
@@ -97,23 +97,23 @@ Java平台上的多语言混合编程正成为主流，通过特定领域的语�
 - 1995年，Sun正式发布Java和HotJava产品，Java首次公开亮相。
 - 1996年1月23日sun Microsystems发布了JDK 1.0。
 - 1998年，JDK1.2版本发布。同时，sun发布了JSP/Servlet、EJB规范，以及将Java分成了J2EE、J2SE和J2ME。这表明了Java开始向企业、桌面应用和移动设备应用3大领域挺进。
-- 2000年，JDK1.3发布，Java HotSpot Virtual Machine正式发布，成为Java的默认虚拟机。
+- 2000年，JDK1.3发布，<font color='red'>Java HotSpot Virtual Machine正式发布，成为Java的默认虚拟机。</font>
 - 2002年，JDK1.4发布，古老的Classic虚拟机退出历史舞台。
-- 2003年年底，Java平台的scala正式发布，同年Groovy也加入了Java阵营。
+- 2003年年底，<font color='red'>Java平台的scala正式发布，同年Groovy也加入了Java阵营</font>。
 - 2004年，JDK1.5发布。同时JDK1.5改名为JavaSE5.0。
-- 2006年，JDK6发布。同年，Java开源并建立了openJDK。顺理成章，Hotspot虚拟机也成为了openJDK中的默认虚拟机。
+- 2006年，JDK6发布。同年，<font color='red'>Java开源并建立了openJDK</font>。顺理成章，<font color='red'>Hotspot虚拟机也成为了openJDK中的默认虚拟机。</font>
 
-- 2007年，Java平台迎来了新伙伴Clojure。
-- 2008年，oracle收购了BEA，得到了JRockit虚拟机。
+- 2007年，<font color='red'>Java平台迎来了新伙伴Clojure</font>。
+- 2008年，oracle收购了BEA，<font color='red'>得到了JRockit虚拟机</font>。
 - 2009年，Twitter宣布把后台大部分程序从Ruby迁移到scala，这是Java平台的又一次大规模应用。
-- 2010年，oracle收购了sun，获得Java商标和最真价值的HotSpot虚拟机。此时，oracle拥有市场占用率最高的两款虚拟机HotSpot和JRockit，并计划在未来对它们进行整合：HotRockit
-- 2011年，JDK7发布。在JDK1.7u4中，正式启用了新的垃圾回收器G1。
-- 2017年，JDK9发布。将G1设置为默认Gc，替代CMS
-- 同年，IBM的J9开源，形成了现在的open J9社区
+- 2010年，<font color='red'>oracle收购了sun，获得Java商标和最真价值的HotSpot虚拟机</font>。此时，oracle拥有市场占用率最高的两款虚拟机HotSpot和JRockit，并计划在未来对它们进行整合：HotRockit
+- 2011年，JDK7发布。在JDK1.7u4中，<font color='red'>正式启用了新的垃圾回收器G1</font>。
+- 2017年，JDK9发布。<font color='red'>将G1设置为默认GC，替代CMS</font>
+- 同年，<font color='red'>IBM的J9开源</font>，形成了现在的open J9社区
 - 2018年，Android的Java侵权案判决，Google赔偿oracle计88亿美元
 - 同年，oracle宣告JavagE成为历史名词JDBC、JMS、Servlet赠予Eclipse基金会
-- 同年，JDK11发布，LTS版本的JDK，发布革命性的zGc，调整JDK授权许可
-- 2019年，JDK12发布，加入RedHat领导开发的shenandoah GC
+- 同年，JDK11发布，LTS版本的JDK，<font color='red'>发布革命性的ZGC，调整JDK授权许可</font>
+- 2019年，JDK12发布，加入RedHat领导开发的<font color='red'>shenandoah GC</font>
 
 ![image-20220725170924146](JVM与Java体系结构.assets/image-20220725170924146.png)
 
@@ -123,10 +123,10 @@ Java平台上的多语言混合编程正成为主流，通过特定领域的语�
 
 ### 虚拟机
 
-所谓虚拟机（Virtual Machine），就是一台虚拟的计算机。它是一款软件，用来执行一系列虚拟计算机指令。大体上，虚拟机可以分为系统虚拟机和程序虚拟机。
+所谓虚拟机（Virtual Machine），就是一台虚拟的计算机。它是一款软件，用来执行一系列虚拟计算机指令。大体上，虚拟机可以分为<font color='red'>系统虚拟机</font>和<font color='red'>程序虚拟机</font>。
 
-- 大名鼎鼎的Visual Box，Mware就属于系统虚拟机，它们完全是对物理计算机的仿真，提供了一个可运行完整操作系统的软件平台。
-- 程序虚拟机的典型代表就是Java虚拟机，它专门为执行单个计算机程序而设计，在Java虚拟机中执行的指令我们称为Java字节码指令。
+- 大名鼎鼎的Visual Box，VMware就属于系统虚拟机，它们<font color='red'>完全是对物理计算机的仿真</font>，提供了一个可运行完整操作系统的软件平台。
+- 程序虚拟机的典型代表就是Java虚拟机，它<font color='red'>专门为执行单个计算机程序而设计</font>，在Java虚拟机中执行的指令我们称为Java字节码指令。
 
 无论是系统虚拟机还是程序虚拟机，在上面运行的软件都被限制于虚拟机提供的资源中。
 
@@ -136,9 +136,9 @@ Java虚拟机是一台执行Java字节码的虚拟计算机，它拥有独立的
 
 JVM平台的各种语言可以共享Java虚拟机带来的跨平台性、优秀的垃圾回器，以及可靠的即时编译器。
 
-Java技术的核心就是Java虚拟机（JVM，Java Virtual Machine），因为所有的Java程序都运行在Java虚拟机内部。
+<font color='red'>Java技术的核心就是Java虚拟机</font>（JVM，Java Virtual Machine），因为所有的Java程序都运行在Java虚拟机内部。
 
-Java虚拟机就是二进制字节码的运行环境，负责装载字节码到其内部，解释/编译为对应平台上的机器指令执行。每一条Java指令，Java虚拟机规范中都有详细定义，如怎么取操作数，怎么处理操作数，处理结果放在哪里。
+<font color='red'>Java虚拟机就是二进制字节码的运行环境</font>，负责装载字节码到其内部，解释/编译为对应平台上的机器指令执行。每一条Java指令，Java虚拟机规范中都有详细定义，如怎么取操作数，怎么处理操作数，处理结果放在哪里。
 
 特点：
 
@@ -174,16 +174,16 @@ Java的体系结构
 
 ## JVM的架构模型
 
-Java编译器输入的指令流基本上是一种基于栈的指令集架构，另外一种指令集架构则是基于寄存器的指令集架构。具体来说：这两种架构之间的区别：
+Java编译器输入的指令流基本上是一种<font color='red'>基于栈的指令集架构</font>，另外一种指令集架构则是<font color='red'>基于寄存器的指令集架构</font>。具体来说：这两种架构之间的区别：
 
-**基于栈式架构的特点**
+**<font color='red'>基于栈式架构的特点</font>**
 
 - 设计和实现更简单，适用于资源受限的系统；
 - 避开了寄存器的分配难题：使用零地址指令方式分配。
 - 指令流中的指令大部分是零地址指令，其执行过程依赖于操作栈。指令集更小，编译器容易实现。
 - 不需要硬件支持，可移植性更好，更好实现跨平台
 
-基于寄存器架构的特点
+**<font color='red'>基于寄存器架构的特点</font>**
 
 - 典型的应用是x86的二进制指令集：比如传统的PC以及Android的Davlik虚拟机。
 - 指令集架构则完全依赖硬件，可移植性差
@@ -266,7 +266,7 @@ javap -v StackStruTest.class
 
 ## 总结
 
-由于跨平台性的设计，Java的指令都是根据栈来设计的。不同平台CPU架构不同，所以不能设计为基于寄存器的。优点是跨平台，指令集小，编译器容易实现，缺点是性能下降，实现同样的功能需要更多的指令。
+<font color='red'>由于跨平台性的设计，Java的指令都是根据栈来设计的</font>。不同平台CPU架构不同，所以不能设计为基于寄存器的。优点是跨平台，指令集小，编译器容易实现，缺点是性能下降，实现同样的功能需要更多的指令。
 
 时至今日，尽管嵌入式平台已经不是Java程序的主流运行平台了（准确来说应该是HotSpotVM的宿主环境已经不局限于嵌入式平台了），那么为什么不将架构更换为基于寄存器的架构呢？
 
@@ -287,7 +287,7 @@ Java虚拟机的启动是通过引导类加载器（bootstrap class loader）创
 
 - 一个运行中的Java虚拟机有着一个清晰的任务：执行Java程序。
 - 程序开始执行时他才运行，程序结束时他就停止。
-- 执行一个所谓的Java程序的时候，真真正正在执行的是一个叫做Java虚拟机的进程。
+- <font color='red'>执行一个所谓的Java程序的时候，真真正正在执行的是一个叫做Java虚拟机的进程。</font>
 
 ### 虚拟机的退出
 
@@ -304,7 +304,7 @@ Java虚拟机的启动是通过引导类加载器（bootstrap class loader）创
 
 ### Sun Classic VM
 
-- 早在1996年Java1.0版本的时候，Sun公司发布了一款名为sun classic VM的Java虚拟机，它同时也是世界上第一款商用Java虚拟机，JDK1.4时完全被淘汰。
+- 早在1996年Java1.0版本的时候，Sun公司发布了一款名为sun classic VM的Java虚拟机，它同时也是<font color='red'>世界上第一款商用Java虚拟机</font>，JDK1.4时完全被淘汰。
 - 这款虚拟机内部只提供解释器。现在还有及时编译器，因此效率比较低，而及时编译器会把热点代码缓存起来，那么以后使用热点代码的时候，效率就比较高。
 - 如果使用JIT编译器，就需要进行外挂。但是一旦使用了JIT编译器，JIT就会接管虚拟机的执行系统。解释器就不再工作。解释器和编译器不能配合工作。
 - 现在hotspot内置了此虚拟机。
@@ -332,7 +332,7 @@ HotSpot历史
 - 1997年，此公司被sun收购；2009年，Sun公司被甲骨文收购。
 - JDK1.3时，HotSpot VM成为默认虚拟机
 
-目前Hotspot占有绝对的市场地位，称霸武林。
+<font color='red'>目前Hotspot占有绝对的市场地位，称霸武林。</font>
 
 - 不管是现在仍在广泛使用的JDK6，还是使用比例较多的JDK8中，默认的虚拟机都是HotSpot
 - Sun/oracle JDK和openJDK的默认虚拟机
@@ -347,11 +347,11 @@ HotSpot历史
 
 ### JRockit
 
-专注于服务器端应用
+<font color='red'>专注于服务器端应用</font>
 
-- 它可以不太关注程序启动速度，因此JRockit内部不包含解析器实现，全部代码都靠即时编译器编译后执行。
+- 它可以不太关注程序启动速度，因此<font color='red'>JRockit内部不包含解析器实现</font>，全部代码都靠即时编译器编译后执行。
 
-大量的行业基准测试显示，JRockit JVM是世界上最快的JVM。
+大量的行业基准测试显示，<font color='red'>JRockit JVM是世界上最快的JVM</font>。
 
 - 使用JRockit产品，客户已经体验到了显著的性能提高（一些超过了70%）和硬件成本的减少（达50%）。
 
@@ -391,13 +391,13 @@ KVM简单、轻量、高度可移植，面向更低端的设备上还维持自�
 
 ### Azul VM
 
-前面三大“高性能Java虚拟机”使用在通用硬件平台上这里Azu1VW和BEALiquid VM是与特定硬件平台绑定、软硬件配合的专有虚拟机I
+前面三大“高性能Java虚拟机”使用在通用硬件平台上这里Azu1VW和BEALiquid VM是<font color='red'>与特定硬件平台绑定、软硬件配合的专有虚拟机</font>
 
 - 高性能Java虚拟机中的战斗机。
 
 Azul VM是Azu1Systems公司在HotSpot基础上进行大量改进，运行于Azul Systems公司的专有硬件Vega系统上的ava虚拟机。
 
-每个Azu1VM实例都可以管理至少数十个CPU和数百GB内存的硬件资源，并提供在巨大内存范围内实现可控的GC时间的垃圾收集器、专有硬件优化的线程调度等优秀特性。
+<font color='red'>每个Azu1 VM实例都可以管理至少数十个CPU和数百GB内存的硬件资源，并提供在巨大内存范围内实现可控的GC时间的垃圾收集器、专有硬件优化的线程调度等优秀特性。</font>
 
 2010年，AzulSystems公司开始从硬件转向软件，发布了自己的zing JVM，可以在通用x86平台上提供接近于Vega系统的特性。
 
@@ -407,9 +407,9 @@ Azul VM是Azu1Systems公司在HotSpot基础上进行大量改进，运行于Azul
 
 BEA公司开发的，直接运行在自家Hypervisor系统上Liquid VM即是现在的JRockit VE（Virtual Edition），
 
-Liquid VM不需要操作系统的支持，或者说它自己本身实现了一个专用操作系统的必要功能，如线程调度、文件系统、网络支持等。
+<font color='red'>Liquid VM不需要操作系统的支持，或者说它自己本身实现了一个专用操作系统的必要功能，如线程调度、文件系统、网络支持等。</font>
 
-随着JRockit虚拟机终止开发，Liquid vM项目也停止了。
+随着JRockit虚拟机终止开发，Liquid VM项目也停止了。
 
 ### Apache Marmony
 
@@ -431,13 +431,13 @@ Apache也曾经推出过与JDK1.5和JDK1.6兼容的Java运行平台Apache Harmon
 
 由AliJVM团队发布。阿里，国内使用Java最强大的公司，覆盖云计算、金融、物流、电商等众多领域，需要解决高并发、高可用、分布式的复合问题。有大量的开源产品。
 
-基于openJDK开发了自己的定制版本AlibabaJDK，简称AJDK。是整个阿里Java体系的基石。
+<font color='red'>基于openJDK开发了自己的定制版本AlibabaJDK</font>，简称AJDK。是整个阿里Java体系的基石。
 
-基于openJDK Hotspot VM发布的国内第一个优化、深度定制且开源的高性能服务器版Java虚拟机。
+基于openJDK Hotspot VM发布的国内第一个优化、<font color='red'>深度定制且开源的高性能服务器版Java虚拟机</font>。
 
-- 创新的GCIH（GCinvisible heap）技术实现了off-heap，即将生命周期较长的Java对象从heap中移到heap之外，并且Gc不能管理GCIH内部的Java对象，以此达到降低GC的回收频率和提升Gc的回收效率的目的。
-- GCIH中的对象还能够在多个Java虚拟机进程中实现共享
-- 使用crc32指令实现JvM intrinsic降低JNI的调用开销
+- 创新的GCIH（GCinvisible heap）技术实现了off-heap，<font color='red'>即将生命周期较长的Java对象从heap中移到heap之外，并且GC不能管理GCIH内部的Java对象，以此达到降低GC的回收频率和提升GC的回收效率的目的</font>。
+- GCIH中的<font color='red'>对象还能够在多个Java虚拟机进程中实现共享</font>
+- 使用crc32指令实现JVM intrinsic降低JNI的调用开销
 - PMU hardware的Java profiling tool和诊断协助功能
 - 针对大数据场景的ZenGc 
 
